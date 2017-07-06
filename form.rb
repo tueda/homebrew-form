@@ -3,9 +3,8 @@ class Form < Formula
   homepage "http://www.nikhef.nl/~form/"
 
   stable do
-    url "https://github.com/vermaseren/form/releases/download/v4.1-20131025/form-4.1.tar.gz"
-    sha256 "fb3470937d66ed5cb1af896b15058836d2c805d767adac1b9073ed2df731cbe9"
-    patch :DATA
+    url "https://github.com/vermaseren/form/releases/download/v4.2.0/form-4.2.0.tar.gz"
+    sha256 "55fb2f69b98e4bd48e365b2245f3d0e22ef0f969d07b1a4aa81b120baf42a2a4"
   end
 
   head do
@@ -46,8 +45,7 @@ class Form < Formula
     args << "--without-gmp" if build.without? "gmp"
     system "./configure", *args
     system "make"
-    # NOTE: The test suite of v4.1 depends on Linux strace.
-    system "make", "check" if build.with?("test") && (build.head? || OS.linux?)
+    system "make", "check" if build.with? "test"
     system "make", "install"
   end
 
@@ -71,17 +69,3 @@ class Form < Formula
     assert_equal result, pipe_output("#{bin}/form -q test.frm")
   end
 end
-__END__
-diff --git a/check/form.rb b/check/form.rb
-index 2c5d87e..8253a41 100644
---- a/check/form.rb
-+++ b/check/form.rb
-@@ -35,7 +35,7 @@ def cleanup_tempfiles
- end
- 
- # determine OS we are running on
--osname = Config::CONFIG["target_os"]
-+osname = RbConfig::CONFIG["target_os"]
- if osname =~ /linux/
- 	LINUX = true
- elsif osname =~ /mswin32/
