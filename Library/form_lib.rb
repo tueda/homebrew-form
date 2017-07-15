@@ -25,6 +25,23 @@ class Formula
     pkgformpath/"#{name.sub(/form-/, "")}"
   end
 
+  # Create a wrapper header file and install the library using a subdirectory.
+  # This mechanism works when the library has only one main header file (with a
+  # unique file name) expected to be included in user programs.
+  def pkgformwrapper(header_file, other_files)
+    other_files = [*other_files]
+    pkgpath.install [header_file] + other_files
+    include_guard_id = "#{name.gsub(/form-|-|_|\./, "").upcase}WRAPPERHFILE"
+    (buildpath/header_file).write <<-EOS.undent
+      #ifndef `#{include_guard_id}'
+      #define #{include_guard_id}
+      #appendpath #{pkgpath}
+      #include #{pkgpath}/#{header_file}
+      #endif
+    EOS
+    pkgformpath.install header_file
+  end
+
   # FORMPATH message for "caveats" of each formula.
   def formpath_message; s = <<-EOS.undent
     Add the following line to your .bashrc or .zshrc:
