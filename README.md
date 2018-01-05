@@ -76,6 +76,8 @@ Probably, it is best to start by copying an existing formula.
   names and may cause conflict with another package in future.
   The recommended way is, like [Forcer](https://github.com/benruijl/forcer),
   putting one header file and one directory with the help of the
-  [`#AppendPath`](https://github.com/vermaseren/form/commit/29c1794c7d47b7d20e33a323492a224586f00fb9)
-  preprocessor instruction (available in the development version) to minimize
+  [`#AppendPath`](https://www.nikhef.nl/~form/maindir/documentation/reference/online/online.html#preappendpath)
+  or
+  [`#PrependPath`](https://www.nikhef.nl/~form/maindir/documentation/reference/online/online.html#preprependpath)
+  preprocessor instruction (available since FORM version 4.2) to minimize
   possible conflict, but for this old packages may need to be modified.
