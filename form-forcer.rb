@@ -6,7 +6,7 @@ class FormForcer < Formula
   url "https://github.com/benruijl/forcer/archive/v1.0.0.tar.gz"
   sha256 "b2bf47591bfef313c233b4afab575d6b06d7943b183768206d2fee300b5e3f2c"
 
-  depends_on "form" => :run
+  depends_on "form"
 
   def install
     # Put the example into forcer/examples.
@@ -17,7 +17,7 @@ class FormForcer < Formula
     pkgformpath.install ["forcer.h", "forcer"]
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     #{formpath_message}
     EOS
   end

@@ -7,7 +7,7 @@ class FormHarmpol < Formula
   version "20070215"
   sha256 "79e506fc20ce2b2c955dd5d616b5968da2111b1f27b54ac1257c8e8d468aad9f"
 
-  depends_on "form" => :run
+  depends_on "form"
   depends_on "form-summer"
 
   resource "harmpolex" do
@@ -50,13 +50,13 @@ class FormHarmpol < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     #{formpath_message}
     EOS
   end
 
   test do
-    (testpath/"test.frm").write <<-EOS.undent
+    (testpath/"test.frm").write <<~EOS
       #include harmpol.h
       .global
       #call htables(6)

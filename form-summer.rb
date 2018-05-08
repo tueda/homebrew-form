@@ -7,7 +7,7 @@ class FormSummer < Formula
   version "20140325"
   sha256 "6699d592e92804dde143422d396d4eb7118129f7be38180e40d9cd1a22b8d71f"
 
-  depends_on "form" => :run
+  depends_on "form"
 
   resource "summerex" do
     url "http://www.nikhef.nl/~form/maindir/packages/summer/summerex.tar.gz"
@@ -49,7 +49,7 @@ class FormSummer < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     #{formpath_message}
     EOS
   end

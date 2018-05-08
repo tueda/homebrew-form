@@ -7,7 +7,7 @@ class FormMincer < Formula
   version "20070206"
   sha256 "a79a0f6319b353c55a11f7f17e8b3456a8f0eac4689231bc061df198d96b9887"
 
-  depends_on "form" => :run
+  depends_on "form"
 
   resource "testmincer1" do
     url "http://www.nikhef.nl/~form/maindir/packages/mincer/testmincer1.frm"
@@ -31,7 +31,7 @@ class FormMincer < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     #{formpath_message}
     EOS
   end

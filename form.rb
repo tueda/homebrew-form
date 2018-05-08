@@ -13,13 +13,15 @@ class Form < Formula
     depends_on "automake" => :build
   end
 
-  option "with-mpi", "Build also the mpi versions"
   option "with-debug", "Build also the debug versions"
   option "without-test", "Skip build-time tests"
+  option "with-mpich", "Build also the MPI versions with MPICH"
+  option "with-open-mpi", "Build also the MPI versions with Open MPI"
 
   depends_on "zlib" => :recommended unless OS.mac?
   depends_on "gmp" => :recommended
-  depends_on :mpi => [:cc, :cxx, :optional]
+  depends_on "mpich" => :optional
+  depends_on "open-mpi" => :optional
 
   def normalize_flags(flags)
     # Don't use optimization flags given by Homebrew.
@@ -41,7 +43,7 @@ class Form < Formula
       "--disable-silent-rules",
     ]
     args << "--enable-debug" if build.with? "debug"
-    args << "--enable-parform" if build.with? :mpi
+    args << "--enable-parform" if build.with?("open-mpi") || build.with?("mpich")
     args << "--without-gmp" if build.without? "gmp"
     system "./configure", *args
     system "make"
@@ -50,7 +52,7 @@ class Form < Formula
   end
 
   test do
-    (testpath/"test.frm").write <<-EOS.undent
+    (testpath/"test.frm").write <<~EOS
       Off stats;
       Off finalstats;
       Off totalsize;

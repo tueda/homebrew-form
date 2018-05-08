@@ -7,7 +7,7 @@ class FormColor < Formula
   version "20090807"
   sha256 "616e225880fda51c5e1d37b8730a520b1994f05d70713e7e8b2fca2e2ab3fd00"
 
-  depends_on "form" => :run
+  depends_on "form"
 
   resource "color" do
     url "http://www.nikhef.nl/~form/maindir/packages/color/color.tar.gz"
@@ -22,7 +22,7 @@ class FormColor < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     #{formpath_message}
     EOS
   end

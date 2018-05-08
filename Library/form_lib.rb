@@ -32,7 +32,7 @@ class Formula
     other_files = [*other_files]
     pkgpath.install [header_file] + other_files
     include_guard_id = "#{name.gsub(/form-|-|_|\./, "").upcase}WRAPPERHFILE"
-    (buildpath/header_file).write <<-EOS.undent
+    (buildpath/header_file).write <<~EOS
       #ifndef `#{include_guard_id}'
       #define #{include_guard_id}
       #appendpath #{pkgpath}
@@ -43,7 +43,7 @@ class Formula
   end
 
   # FORMPATH message for "caveats" of each formula.
-  def formpath_message; s = <<-EOS.undent
+  def formpath_message; s = <<~EOS
     Add the following line to your .bashrc or .zshrc:
       export FORMPATH=$FORMPATH:$(brew --prefix)/share/form
     EOS

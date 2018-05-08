@@ -13,7 +13,7 @@ class FormFmft < Formula
     option "with-weight#{i}", "Install up to weight #{i} tables"
   end
 
-  depends_on "form" => :run
+  depends_on "form"
 
   resource "isp-w11" do
     url "https://dl.bintray.com/apik/FMFT/isp-w11.tar.gz"
@@ -79,7 +79,7 @@ class FormFmft < Formula
     pkgformwrapper "fmft.hh", ["isp", "example.frm", "intG.tbl"]
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     #{formpath_message}
     EOS
   end
