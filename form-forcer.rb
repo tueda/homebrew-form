@@ -1,4 +1,4 @@
-require File.expand_path("../Library/form_lib", __FILE__)
+require File.expand_path("Library/form_lib", __dir__)
 
 class FormForcer < Formula
   desc "FORM program for four-loop massless propagator diagrams"
