@@ -3,8 +3,8 @@ class Form < Formula
   homepage "http://www.nikhef.nl/~form/"
 
   stable do
-    url "https://github.com/vermaseren/form/releases/download/v4.2.0/form-4.2.0.tar.gz"
-    sha256 "55fb2f69b98e4bd48e365b2245f3d0e22ef0f969d07b1a4aa81b120baf42a2a4"
+    url "https://github.com/vermaseren/form/releases/download/v4.2.1/form-4.2.1.tar.gz"
+    sha256 "f2722d6d4ccb034e01cf786d55342e1c21ff55b182a4825adf05d50702ab1a28"
   end
 
   head do
