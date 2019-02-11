@@ -40,4 +40,8 @@ notifications:
 env:
   - PACKAGE=form
   - PACKAGE=form OPTIONS=--HEAD
+  - PACKAGE=form@4.2.0
+  - PACKAGE=form@4.1.0
+  - PACKAGE=form@4.0.1
+  - PACKAGE=form@4.0.0
   - PACKAGE=form-packages
