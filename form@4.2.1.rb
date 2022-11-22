@@ -1,10 +1,10 @@
-class Form < Formula
+class FormAT421 < Formula
   desc "Symbolic manipulation system for very big expressions"
   homepage "http://www.nikhef.nl/~form/"
 
   stable do
-    url "https://github.com/vermaseren/form/releases/download/v4.3.0/form-4.3.0.tar.gz"
-    sha256 "b234e0d095f73ecb0904cdc3b0d8d8323a9fa7f46770a52fb22267c624aafbf6"
+    url "https://github.com/vermaseren/form/releases/download/v4.2.1/form-4.2.1.tar.gz"
+    sha256 "f2722d6d4ccb034e01cf786d55342e1c21ff55b182a4825adf05d50702ab1a28"
   end
 
   head do
