@@ -3,8 +3,6 @@ homebrew-form
 
 Homebrew formulae for [FORM](https://www.nikhef.nl/~form/) and related software.
 
-[![Build Status](https://travis-ci.org/tueda/homebrew-form.svg?branch=master)](https://travis-ci.org/tueda/homebrew-form)
-
 Quick start
 -----------
 
