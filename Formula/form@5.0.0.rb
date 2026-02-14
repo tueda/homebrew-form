@@ -1,17 +1,8 @@
-class Form < Formula
+class FormAT500 < Formula
   desc "Symbolic manipulation system for very big expressions"
   homepage "http://www.nikhef.nl/~form/"
-
-  stable do
-    url "https://github.com/form-dev/form/releases/download/v5.0.0/form-5.0.0.tar.gz"
-    sha256 "10d22acf2f0acf831b494e6a73682828980b9054ea8ec2b5dc46677dca8d6518"
-  end
-
-  head do
-    url "https://github.com/form-dev/form.git", :shallow => false
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-  end
+  url "https://github.com/form-dev/form/releases/download/v5.0.0/form-5.0.0.tar.gz"
+  sha256 "10d22acf2f0acf831b494e6a73682828980b9054ea8ec2b5dc46677dca8d6518"
 
   option "with-backtrace", "Build with backtrace support"
   option "with-debug", "Build also the debug versions"
@@ -40,9 +31,9 @@ class Form < Formula
   def install
     ENV["CFLAGS"] = normalize_flags(ENV["CFLAGS"])
     ENV["CXXFLAGS"] = normalize_flags(ENV["CXXFLAGS"])
-    system "autoreconf", "-i" if build.head?
     args = [
       "--prefix=#{prefix}",
+      "--program-suffix=-#{version}",
       "--disable-dependency-tracking",
       "--disable-silent-rules",
     ]
@@ -75,6 +66,6 @@ class Form < Formula
       a^2 + 2*a*b + b^2;
 
     EOS
-    assert_equal result, pipe_output("#{bin}/form -q test.frm")
+    assert_equal result, pipe_output("#{bin}/form-#{version} -q test.frm")
   end
 end
