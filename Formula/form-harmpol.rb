@@ -1,4 +1,4 @@
-require File.expand_path("Library/form_lib", __dir__)
+require File.expand_path("../Library/form_lib", __dir__)
 
 class FormHarmpol < Formula
   desc "FORM procedures and tables for the manipulation of HPLs"

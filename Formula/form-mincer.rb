@@ -1,4 +1,4 @@
-require File.expand_path("Library/form_lib", __dir__)
+require File.expand_path("../Library/form_lib", __dir__)
 
 class FormMincer < Formula
   desc "Package for massless three loop propagator-like integrals"
