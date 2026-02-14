@@ -3,12 +3,12 @@ class Form < Formula
   homepage "http://www.nikhef.nl/~form/"
 
   stable do
-    url "https://github.com/vermaseren/form/releases/download/v4.3.1/form-4.3.1.tar.gz"
+    url "https://github.com/form-dev/form/releases/download/v4.3.1/form-4.3.1.tar.gz"
     sha256 "f1f512dc34fe9bbd6b19f2dfef05fcb9912dfb43c8368a75b796ec472ee8bbce"
   end
 
   head do
-    url "https://github.com/vermaseren/form.git", :shallow => false
+    url "https://github.com/form-dev/form.git", :shallow => false
     depends_on "autoconf" => :build
     depends_on "automake" => :build
   end

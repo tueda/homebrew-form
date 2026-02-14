@@ -1,7 +1,7 @@
 class FormAT431 < Formula
   desc "Symbolic manipulation system for very big expressions"
   homepage "http://www.nikhef.nl/~form/"
-  url "https://github.com/vermaseren/form/releases/download/v4.3.1/form-4.3.1.tar.gz"
+  url "https://github.com/form-dev/form/releases/download/v4.3.1/form-4.3.1.tar.gz"
   sha256 "f1f512dc34fe9bbd6b19f2dfef05fcb9912dfb43c8368a75b796ec472ee8bbce"
 
   option "with-debug", "Build also the debug versions"

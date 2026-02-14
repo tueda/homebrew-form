@@ -1,7 +1,7 @@
 class FormAT401 < Formula
   desc "Symbolic manipulation system for very big expressions"
   homepage "http://www.nikhef.nl/~form/"
-  url "https://github.com/vermaseren/form.git", :tag => "v4.0-20120410"
+  url "https://github.com/form-dev/form.git", :tag => "v4.0-20120410"
   version "4.0.1"
   patch :DATA
 

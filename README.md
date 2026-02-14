@@ -28,7 +28,7 @@ brew upgrade tueda/form/form
 ### Development version
 
 Sometimes you may want to use the development version on
-the [FORM repository](https://github.com/vermaseren/form), because it may have
+the [FORM repository](https://github.com/form-dev/form), because it may have
 more functionalities or more well-debugged than the \`stable\' version.
 To install the development version, you can use `--HEAD` option.
 ```
