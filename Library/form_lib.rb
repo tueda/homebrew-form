@@ -43,11 +43,11 @@ class Formula
   end
 
   # FORMPATH message for "caveats" of each formula.
-  def formpath_message; s = <<~EOS
-    Add the following line to your .bashrc or .zshrc:
-      export FORMPATH=$FORMPATH:$(brew --prefix)/share/form
+  def formpath_message
+    <<~EOS.chomp
+      Add the following to your .bashrc or equivalent:
+        export FORMPATH="#{HOMEBREW_PREFIX}/share/form:$FORMPATH"
     EOS
-    s.chomp
   end
 
   # Extract a printed expressions in FORM output.
