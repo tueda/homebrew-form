@@ -1,31 +1,30 @@
-homebrew-form
-=============
+# homebrew-form
 
 Homebrew formulae for [FORM](https://www.nikhef.nl/~form/) and related software.
 
-Quick start
------------
+## Quick Start
 
-1. Install [Homebrew](https://brew.sh/) (macOS) or
-   [Linuxbrew](http://linuxbrew.sh/) (Linux).
+1. Install [Homebrew](https://brew.sh/).
 2. Run `brew install tueda/form/<formula>`. Or tap this repository
    `brew tap tueda/form` and then `brew install <formula>`.
 
-Installing FORM
----------------
+## Installing FORM
 
-### Stable version
+### Stable Version
+
+**Note:** FORM is also available as a [formula](https://formulae.brew.sh/formula/form)
+in `homebrew/core` and can be installed with `brew install form`.
 
 To install FORM, run the following command:
 ```bash
 brew install tueda/form/form
 ```
-You can upgrade the installed FORM by
+To upgrade FORM, run:
 ```bash
 brew upgrade tueda/form/form
 ```
 
-### Development version
+### Development Version
 
 Sometimes you may want to use the development version on
 the [FORM repository](https://github.com/form-dev/form), because it may have
@@ -42,8 +41,7 @@ Instead, you can reinstall it:
 brew reinstall --HEAD tueda/form/form
 ```
 
-Setting $FORMPATH
------------------
+## Setting $FORMPATH
 
 Formulae for FORM packages in this repository (e.g., `form-forcer`) will
 install package files into the directory shown by
@@ -57,15 +55,14 @@ Add the following line to your `.bashrc` or `.zshrc`:
 export FORMPATH="$(brew --prefix)/share/form:$FORMPATH"
 ```
 
-Contributing
-------------
+## Contributing
+
 Any contribution is welcome, but for a pull request making a new formula (e.g.,
 for your FORM package), there are some conventions you should be aware of.
 Probably, it is best to start by copying an existing formula.
 
 - A formulae for FORM package must have a name `form-<package>.rb`.
 - Please follow the Homebrew coding style.
-  You can check your formula by `brew audit --strict <formula>.rb`.
 - `test` is required, which typically runs examples. Probably proprietary
   software cannot work on our continuous integration setup.
   Packages depending on them are ruled out from this tap.
@@ -74,8 +71,8 @@ Probably, it is best to start by copying an existing formula.
   names and may cause conflict with another package in future.
   The recommended way is, like [Forcer](https://github.com/benruijl/forcer),
   putting one header file and one directory with the help of the
-  [`#AppendPath`](https://www.nikhef.nl/~form/maindir/documentation/reference/online/online.html#preappendpath)
+  [`#AppendPath`](https://form-dev.github.io/form-docs/stable/manual/#preappendpath)
   or
-  [`#PrependPath`](https://www.nikhef.nl/~form/maindir/documentation/reference/online/online.html#preprependpath)
+  [`#PrependPath`](https://form-dev.github.io/form-docs/stable/manual/#preprependpath)
   preprocessor instruction (available since FORM version 4.2) to minimize
   possible conflict, but for this old packages may need to be modified.
