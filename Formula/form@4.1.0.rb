@@ -1,27 +1,29 @@
 class FormAT410 < Formula
   desc "Symbolic manipulation system for very big expressions"
-  homepage "http://www.nikhef.nl/~form/"
+  homepage "https://www.nikhef.nl/~form/"
   url "https://github.com/form-dev/form/releases/download/v4.1-20131025/form-4.1.tar.gz"
   version "4.1.0"
   sha256 "fb3470937d66ed5cb1af896b15058836d2c805d767adac1b9073ed2df731cbe9"
-  patch :DATA
-
   option "with-debug", "Build also the debug versions"
   option "without-test", "Skip build-time tests"
   option "with-mpich", "Build also the MPI versions with MPICH"
   option "with-open-mpi", "Build also the MPI versions with Open MPI"
 
-  depends_on "zlib" => :recommended unless OS.mac?
   depends_on "gmp" => :recommended
   depends_on "mpich" => :optional
   depends_on "open-mpi" => :optional
 
+  patch :DATA
+
+  depends_on "zlib" => :recommended unless OS.mac?
+
   def normalize_flags(flags)
     # Don't use optimization flags given by Homebrew.
     return flags if flags.nil?
-    a = flags.split(" ")
+
+    a = flags.split
     a.delete_if do |item|
-      item == "-Os" || item == "-w"
+      ["-Os", "-w"].include?(item)
     end
     a.join(" ")
   end

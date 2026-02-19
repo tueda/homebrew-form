@@ -50,8 +50,9 @@ class FormHarmpol < Formula
     end
   end
 
-  def caveats; <<~EOS
-    #{formpath_message}
+  def caveats
+    <<~EOS
+      #{formpath_message}
     EOS
   end
 

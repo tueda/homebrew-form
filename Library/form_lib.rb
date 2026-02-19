@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "formula"
 
 class Formula
@@ -10,7 +12,7 @@ class Formula
   # $FORMPATH for brewed form packages.
   # Example: /usr/local/share/form
   def formpath
-    share/"#{HOMEBREW_PREFIX/"share/form"}"
+    share/(HOMEBREW_PREFIX/"share/form").to_s
   end
 
   # $FORMPATH for each form package, linked to "formpath".
@@ -22,7 +24,7 @@ class Formula
   # A directory that may be used to place extra files for each package.
   # Example: /usr/local/Cellar/form-foo/0.1/share/form/foo
   def pkgpath
-    pkgformpath/"#{name.sub(/form-/, "")}"
+    pkgformpath/name.sub("form-", "").to_s
   end
 
   # Create a wrapper header file and install the library using a subdirectory.
@@ -54,7 +56,7 @@ class Formula
   def result(output, exprname, index = -1)
     matches = output.scan(/^[ \t]+#{Regexp.escape(exprname)}\s*=(.+?);/m)
     r = matches[index].first if !matches.empty? && !matches[index].nil?
-    r.gsub(/\s+/, "") if !r.nil?
+    r&.gsub(/\s+/, "")
   end
 
   # String representation of an expression to be compared with a return-value of

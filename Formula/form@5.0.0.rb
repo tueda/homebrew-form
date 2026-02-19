@@ -1,6 +1,6 @@
 class FormAT500 < Formula
   desc "Symbolic manipulation system for very big expressions"
-  homepage "http://www.nikhef.nl/~form/"
+  homepage "https://www.nikhef.nl/~form/"
   url "https://github.com/form-dev/form/releases/download/v5.0.0/form-5.0.0.tar.gz"
   sha256 "10d22acf2f0acf831b494e6a73682828980b9054ea8ec2b5dc46677dca8d6518"
 
@@ -14,16 +14,17 @@ class FormAT500 < Formula
 
   depends_on "gmp" => :recommended
   depends_on "mpfr" => :recommended
+  depends_on "zstd" => :recommended
   depends_on "mpich" => :optional
   depends_on "open-mpi" => :optional
-  depends_on "zstd" => :recommended
 
   def normalize_flags(flags)
     # Don't use optimization flags given by Homebrew.
     return flags if flags.nil?
-    a = flags.split(" ")
+
+    a = flags.split
     a.delete_if do |item|
-      item == "-Os" || item == "-w"
+      ["-Os", "-w"].include?(item)
     end
     a.join(" ")
   end

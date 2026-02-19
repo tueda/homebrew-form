@@ -17,11 +17,11 @@ Installing FORM
 ### Stable version
 
 To install FORM, run the following command:
-```
+```bash
 brew install tueda/form/form
 ```
 You can upgrade the installed FORM by
-```
+```bash
 brew upgrade tueda/form/form
 ```
 
@@ -31,14 +31,14 @@ Sometimes you may want to use the development version on
 the [FORM repository](https://github.com/form-dev/form), because it may have
 more functionalities or more well-debugged than the \`stable\' version.
 To install the development version, you can use `--HEAD` option.
-```
+```bash
 brew install --HEAD tueda/form/form
 ```
 More install options can be found by `brew info tueda/form/form`.
 For packages installed with the `--HEAD` option, `brew upgrade` is known
 [not to work](https://github.com/Homebrew/legacy-homebrew/issues/13197).
 Instead, you can reinstall it:
-```
+```bash
 brew reinstall --HEAD tueda/form/form
 ```
 
@@ -47,14 +47,14 @@ Setting $FORMPATH
 
 Formulae for FORM packages in this repository (e.g., `form-forcer`) will
 install package files into the directory shown by
-```
+```bash
 echo "$(brew --prefix)/share/form"
 ```
 Therefore it is convenient to append this directory to
 [`FORMPATH`](https://www.nikhef.nl/~form/maindir/documentation/reference/online/online.html#145).
 Add the following line to your `.bashrc` or `.zshrc`:
-```
-export FORMPATH="$FORMPATH:$(brew --prefix)/share/form"
+```bash
+export FORMPATH="$(brew --prefix)/share/form:$FORMPATH"
 ```
 
 Contributing

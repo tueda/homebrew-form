@@ -1,6 +1,6 @@
 class FormAT421 < Formula
   desc "Symbolic manipulation system for very big expressions"
-  homepage "http://www.nikhef.nl/~form/"
+  homepage "https://www.nikhef.nl/~form/"
   url "https://github.com/form-dev/form/releases/download/v4.2.1/form-4.2.1.tar.gz"
   sha256 "f2722d6d4ccb034e01cf786d55342e1c21ff55b182a4825adf05d50702ab1a28"
 
@@ -17,9 +17,10 @@ class FormAT421 < Formula
   def normalize_flags(flags)
     # Don't use optimization flags given by Homebrew.
     return flags if flags.nil?
-    a = flags.split(" ")
+
+    a = flags.split
     a.delete_if do |item|
-      item == "-Os" || item == "-w"
+      ["-Os", "-w"].include?(item)
     end
     a.join(" ")
   end

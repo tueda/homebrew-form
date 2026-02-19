@@ -3,7 +3,7 @@ require File.expand_path("../Library/form_lib", __dir__)
 class FormFmft < Formula
   desc "Fully Massive Four-loop Tadpoles"
   homepage "https://github.com/apik/fmft/"
-  url "https://github.com/apik/fmft/archive/1.0.tar.gz"
+  url "https://github.com/apik/fmft/archive/refs/tags/1.0.tar.gz"
   sha256 "479ccceba4ac60700a31477319c362a46edd09a2130838a95bcd42960e9b00b2"
   head "https://github.com/apik/fmft.git"
 
@@ -14,8 +14,9 @@ class FormFmft < Formula
     pkgformpath.install "fmft.hh"
   end
 
-  def caveats; <<~EOS
-    #{formpath_message}
+  def caveats
+    <<~EOS
+      #{formpath_message}
     EOS
   end
 
